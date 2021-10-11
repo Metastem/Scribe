@@ -5,6 +5,13 @@ class Home::IndexPage < MainLayout
 
   def content
     h1 "Scribe"
+    h2 "An alternative frontend to Medium"
+    para do
+          a(
+            "Here's an example",
+            href: "/@ftrain/big-data-small-effort-b62607a43a8c"
+          )
+        end
     article do
       section do
         h2 "How-To"
@@ -15,7 +22,7 @@ class Home::IndexPage < MainLayout
           code app_domain, class: "highlight"
         end
         para do
-          text "For example if the URL is: "
+          text "If the URL is: "
           code do
             span "medium.com", class: "highlight"
             text "/@user/my-post-09a6af907a2"
