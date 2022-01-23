@@ -44,6 +44,16 @@ Other configuration needed when in `production` mode:
 * SECRET_KEY_BASE: A 32-bit string. Can be generated with `lucky gen.secret_key`
 * DATABASE_URL: May be any valid postgres url since Scribe doesn't use a database
   * Example: `postgres://does@not/matter`
+* GITHUB_PERSONAL_ACCESS_TOKEN: to proxy gists with authenticated GitHub API requests
+* GITHUB_USERNAME: to proxy gists with authenticated GitHub API requests
+
+### GitHub Gist Proxying
+
+Scribe proxies GitHub gists. It does this by making API requests to GitHub's ReST API to get the gist file contents. GitHub limits API requests to 5000/hour with a valid api token and 60/hour without. 60 is pretty tight for the usage that scribe.rip gets, but 5000 is reasonable most of the time.
+
+API credentials are in the form of a GitHub username and a personal access token attached to that username. To get a token, visit https://github.com/settings/tokens and create a new token. The only permission it needs is `gist`.
+
+This token is set via the `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable. The username also needs to be set via `GITHUB_USERNAME`. When developing locally, these can both be set in the .env file. Authentication is probably not necessary locally, but it's there if you want to test. If either token is missing, unauthenticated requests are made.
 
 ## Project goals
 
