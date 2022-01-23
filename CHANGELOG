@@ -1,0 +1,91 @@
+2023-01-23
+
+* Proxy GitHub gists with rate limiting
+* Add CHANGELOG
+
+2023-01-16
+
+* Add scribe.bus-hit.me instance
+
+2023-01-15
+
+* Add instructions for Lucky config variables
+* Ensure that scr/version is up-to-date when building
+
+2023-01-08
+
+* Use FAQ entry to explain custom domains
+
+2023-01-04
+
+* Improve Redirector extension instructions
+* Home page instructions for custom domains
+* Add visible version
+
+2021-12-16
+
+* update crystal version in Dockerfile
+
+2021-12-12
+
+* Upgrade Crystal to 1.2.1 and Lucky to 0.29.0
+
+2021-12-04
+
+* Add FAQ on how to use Scribe with custom domains
+
+2021-11-20
+
+* Add citizen4.eu instance
+* Update readme
+
+2021-11-11
+
+* Add instance docs
+
+2021-11-07
+
+* Add project goals to README
+
+2021-11-06
+
+* Support null image widths and heights
+
+2021-10-23
+
+* Add FAQ
+
+2021-10-20
+
+* Add SECTION_CAPTION paragraph type
+* Support null text on paragraphs
+
+2021-10-16
+
+* Parsing Fix: Add H2 Paragraph type
+* Add Dockerfile
+* Point source link at sr.ht project page
+
+2021-10-15
+
+* Further improve proposed pattern for Redirector
+* Add support for development with Nix
+
+2021-10-14
+
+* Use app_domain in Redirector example
+* Add mailing list for patches to README
+
+2021-10-12
+
+* Improve proposed pattern for Redirector extension
+
+2021-10-11
+
+* README updates
+* Support medium's redirectUrl query param
+* Homepage Example
+
+2021-10-03
+
+* Initial release
