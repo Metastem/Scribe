@@ -5,6 +5,7 @@ include Nodes
 describe EmbeddedConverter do
   context "when the mediaResource has an iframeSrc value" do
     it "returns an EmbeddedContent node" do
+      store = GistStore.new
       paragraph = PostResponse::Paragraph.from_json <<-JSON
         {
           "text": "",
@@ -25,7 +26,7 @@ describe EmbeddedConverter do
         }
       JSON
 
-      result = EmbeddedConverter.convert(paragraph)
+      result = EmbeddedConverter.convert(paragraph, store)
 
       result.should eq(
         EmbeddedContent.new(
@@ -40,6 +41,7 @@ describe EmbeddedConverter do
   context "when the mediaResource has a blank iframeSrc value" do
     context "and the href is unknown" do
       it "returns an EmbeddedLink node" do
+        store = GistStore.new
         paragraph = PostResponse::Paragraph.from_json <<-JSON
           {
             "text": "",
@@ -60,7 +62,7 @@ describe EmbeddedConverter do
           }
         JSON
 
-        result = EmbeddedConverter.convert(paragraph)
+        result = EmbeddedConverter.convert(paragraph, store)
 
         result.should eq(EmbeddedLink.new(href: "https://example.com"))
       end
@@ -68,6 +70,7 @@ describe EmbeddedConverter do
 
     context "and the href is gist.github.com" do
       it "returns an GithubGist node" do
+        store = GistStore.new
         paragraph = PostResponse::Paragraph.from_json <<-JSON
           {
             "text": "",
@@ -88,10 +91,13 @@ describe EmbeddedConverter do
           }
         JSON
 
-        result = EmbeddedConverter.convert(paragraph)
+        result = EmbeddedConverter.convert(paragraph, store)
 
         result.should eq(
-          GithubGist.new(href: "https://gist.github.com/user/someid")
+          GithubGist.new(
+            href: "https://gist.github.com/user/someid",
+            gist_store: store
+          )
         )
       end
     end

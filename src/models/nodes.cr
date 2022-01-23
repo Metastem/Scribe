@@ -217,15 +217,21 @@ module Nodes
   end
 
   class GithubGist
-    def initialize(@href : String)
+    getter gist_store : GistStore | RateLimitedGistStore
+
+    def initialize(@href : String, @gist_store : GistStore | RateLimitedGistStore)
     end
 
-    def src
-      "#{@href}.js"
+    def files : Array(GistFile) | Array(MissingGistFile) | Array(RateLimitedGistFile)
+      gist_store.get_gist_files(params.id, params.filename)
+    end
+
+    private def params
+      GistParams.extract_from_url(@href)
     end
 
     def ==(other : GithubGist)
-      other.src == src
+      other.gist_store == gist_store
     end
 
     def empty?

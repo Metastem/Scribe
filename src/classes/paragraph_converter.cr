@@ -1,7 +1,10 @@
 class ParagraphConverter
   include Nodes
 
-  def convert(paragraphs : Array(PostResponse::Paragraph)) : Array(Child)
+  def convert(
+    paragraphs : Array(PostResponse::Paragraph),
+    gist_store : GistStore | RateLimitedGistStore
+  ) : Array(Child)
     if paragraphs.first?.nil?
       return [Empty.new] of Child
     else
@@ -24,7 +27,7 @@ class ParagraphConverter
         node = Heading3.new(children: children)
       when PostResponse::ParagraphType::IFRAME
         paragraph = paragraphs.shift
-        node = EmbeddedConverter.convert(paragraph)
+        node = EmbeddedConverter.convert(paragraph, gist_store)
       when PostResponse::ParagraphType::IMG
         paragraph = paragraphs.shift
         node = convert_img(paragraph)
@@ -60,7 +63,7 @@ class ParagraphConverter
         node = Empty.new
       end
 
-      [node, convert(paragraphs)].flatten.reject(&.empty?)
+      [node, convert(paragraphs, gist_store)].flatten.reject(&.empty?)
     end
   end
 

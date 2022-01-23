@@ -77,8 +77,19 @@ class PageContent < BaseComponent
     end
   end
 
-  def render_child(child : GithubGist)
-    script src: child.src
+  def render_child(gist : GithubGist)
+    gist.files.map { |gist_file| render_child(gist_file) }
+  end
+
+  def render_child(gist_file : GistFile | MissingGistFile | RateLimitedGistFile)
+    para do
+      code do
+        a gist_file.filename, href: gist_file.href
+      end
+    end
+    pre class: "gist" do
+      code gist_file.content
+    end
   end
 
   def render_child(node : Heading1)

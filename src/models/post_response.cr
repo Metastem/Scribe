@@ -38,6 +38,16 @@ class PostResponse
     property iframe : IFrame?
     property layout : String?
     property metadata : Metadata?
+
+    def initialize(
+      @text : String?,
+      @type : ParagraphType,
+      @markups : Array(Markup),
+      @iframe : IFrame?,
+      @layout : String?,
+      @metadata : Metadata?
+    )
+    end
   end
 
   enum ParagraphType
@@ -80,6 +90,9 @@ class PostResponse
 
   class IFrame < Base
     property mediaResource : MediaResource
+
+    def initialize(@mediaResource : MediaResource)
+    end
   end
 
   class MediaResource < Base
@@ -87,6 +100,14 @@ class PostResponse
     property iframeSrc : String
     property iframeWidth : Int32
     property iframeHeight : Int32
+
+    def initialize(
+      @href : String,
+      @iframeSrc : String,
+      @iframeWidth : Int32,
+      @iframeHeight : Int32
+    )
+    end
   end
 
   class Metadata < Base

@@ -4,6 +4,7 @@ include Nodes
 
 describe ParagraphConverter do
   it "converts a simple structure with no markups" do
+    gist_store = GistStore.new
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
@@ -18,12 +19,13 @@ describe ParagraphConverter do
     JSON
     expected = [Heading3.new(children: [Text.new(content: "Title")] of Child)]
 
-    result = ParagraphConverter.new.convert(paragraphs)
+    result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
     result.should eq expected
   end
 
   it "converts a simple structure with a markup" do
+    gist_store = GistStore.new
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
@@ -54,12 +56,13 @@ describe ParagraphConverter do
       ] of Child),
     ]
 
-    result = ParagraphConverter.new.convert(paragraphs)
+    result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
     result.should eq expected
   end
 
   it "groups <ul> list items into one list" do
+    gist_store = GistStore.new
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
@@ -96,12 +99,13 @@ describe ParagraphConverter do
       Paragraph.new(children: [Text.new(content: "Not a list item")] of Child),
     ]
 
-    result = ParagraphConverter.new.convert(paragraphs)
+    result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
     result.should eq expected
   end
 
   it "groups <ol> list items into one list" do
+    gist_store = GistStore.new
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
@@ -138,12 +142,13 @@ describe ParagraphConverter do
       Paragraph.new(children: [Text.new(content: "Not a list item")] of Child),
     ]
 
-    result = ParagraphConverter.new.convert(paragraphs)
+    result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
     result.should eq expected
   end
 
   it "converts an IMG to a Figure" do
+    gist_store = GistStore.new
     paragraph = PostResponse::Paragraph.from_json <<-JSON
       {
         "text": "Image by someuser",
@@ -182,12 +187,13 @@ describe ParagraphConverter do
       ] of Child),
     ]
 
-    result = ParagraphConverter.new.convert([paragraph])
+    result = ParagraphConverter.new.convert([paragraph], gist_store)
 
     result.should eq expected
   end
 
   it "converts all the tags" do
+    gist_store = GistStore.new
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
@@ -333,7 +339,7 @@ describe ParagraphConverter do
       ] of Child),
     ]
 
-    result = ParagraphConverter.new.convert(paragraphs)
+    result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
     result.should eq expected
   end

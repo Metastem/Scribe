@@ -146,19 +146,33 @@ describe PageContent do
   end
 
   it "renders a GitHub Gist" do
+    store = GistStore.new
+    gist_file = GistFile.new(
+      filename: "example",
+      content: "content",
+      raw_url: "https://gist.githubusercontent.com/user/1/raw/abc/example"
+    )
+    store.store["1"] = [gist_file]
     page = Page.new(
       title: "Title",
       author: user_anchor_factory,
       created_at: Time.local,
       nodes: [
-        GithubGist.new(href: "https://gist.github.com/user/some_id"),
+        GithubGist.new(href: "https://gist.github.com/user/1", gist_store: store),
       ] of Child
     )
 
     html = PageContent.new(page: page).render_to_string
 
     html.should eq stripped_html <<-HTML
-      <script src="https://gist.github.com/user/some_id.js"></script>
+      <p>
+        <code>
+          <a href="https://gist.github.com/user/1#file-example">example</a>
+        </code>
+      </p>
+      <pre class="gist">
+        <code>content</code>
+      </pre>
     HTML
   end
 
