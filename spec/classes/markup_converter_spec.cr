@@ -153,6 +153,21 @@ describe MarkupConverter do
         Strong.new(children: [Text.new(" bold")] of Child),
       ])
     end
+
+    it "handles offsets from unicode text" do
+      markup = PostResponse::Markup.new(
+        type: PostResponse::MarkupType::STRONG,
+        start: 5,
+        end: 6
+      )
+
+      result = MarkupConverter.convert(text: "💸💸 <", markups: [markup])
+
+      result.should eq([
+        Text.new("💸💸 "),
+        Strong.new(children: [Text.new("<")] of Child),
+      ])
+    end
   end
 
   describe "#wrap_in_markups" do

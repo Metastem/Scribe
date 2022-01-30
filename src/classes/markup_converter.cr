@@ -10,19 +10,19 @@ class MarkupConverter
   include Nodes
 
   getter markups : Array(PostResponse::Markup)
-  getter text : String
+  getter text : Slice(UInt16)
 
   def self.convert(text : String?, markups : Array(PostResponse::Markup))
     new(text, markups).convert
   end
 
   def initialize(text : String?, @markups : Array(PostResponse::Markup))
-    @text = text || ""
+    @text = (text || "").to_utf16
   end
 
   def convert : Array(Child)
     ranges.flat_map do |range_with_markups|
-      text_to_wrap = text[range_with_markups.range]
+      text_to_wrap = String.from_utf16(text[range_with_markups.range])
       wrap_in_markups(text_to_wrap, range_with_markups.markups)
     end
   end
@@ -39,7 +39,10 @@ class MarkupConverter
     end.to_a
   end
 
-  def wrap_in_markups(child : String | Child, markups : Array(PostResponse::Markup)) : Array(Child)
+  def wrap_in_markups(
+    child : String | Child,
+    markups : Array(PostResponse::Markup)
+  ) : Array(Child)
     if child.is_a?(String)
       child = Text.new(child)
     end

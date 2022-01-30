@@ -1,3 +1,7 @@
+2022-01-30
+
+* Fix bug in markup generation for text with multiple codepoints
+
 2022-01-29
 
 * Provide list of instances as JSON file

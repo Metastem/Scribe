@@ -74,6 +74,17 @@ class PostResponse
     property start : Int32
     property end : Int32
     property anchorType : AnchorType?
+
+    def initialize(
+      @type : MarkupType,
+      @start : Int32,
+      @end : Int32,
+      @title : String? = nil,
+      @href : String? = nil,
+      @userId : String? = nil,
+      @anchorType : AnchorType? = nil
+    )
+    end
   end
 
   enum MarkupType
