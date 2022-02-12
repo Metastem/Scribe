@@ -1,3 +1,8 @@
+2022-02-12
+
+* Error page matches Scribe styles
+* New error page for not being able to parse article URL
+
 2022-01-30
 
 * Fix bug in markup generation for text with multiple codepoints

@@ -10,9 +10,10 @@ class Articles::Show < BrowserAction
       html ShowPage, page: page
     in Monads::Nothing, Monads::Maybe
       html(
-        Errors::ShowPage,
+        Errors::ParseErrorPage,
         message: "Error parsing the URL",
         status_code: 500,
+        original_path: request.path,
       )
     end
   end
