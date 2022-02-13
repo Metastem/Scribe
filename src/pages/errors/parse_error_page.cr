@@ -1,7 +1,7 @@
 class Errors::ParseErrorPage < MainLayout
   needs message : String
   needs status_code : Int32
-  needs original_path : String
+  needs original_resource : String
 
   def page_title
     "Error"
@@ -25,7 +25,7 @@ class Errors::ParseErrorPage < MainLayout
       TEXT
       para do
         text "If you like, you can try visiting "
-        a "this page on medium.com", href: "https://medium.com#{original_path}"
+        a "this page on medium.com", href: "https://medium.com#{original_resource}"
       end
     end
   end

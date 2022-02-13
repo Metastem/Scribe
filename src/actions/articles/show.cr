@@ -12,8 +12,8 @@ class Articles::Show < BrowserAction
       html(
         Errors::ParseErrorPage,
         message: "Error parsing the URL",
-        status_code: 500,
-        original_path: request.path,
+        status_code: 422,
+        original_resource: request.resource,
       )
     end
   end
