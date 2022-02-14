@@ -14,6 +14,14 @@ describe ArticleIdParser do
     result.should eq(Monads::Just.new("111111abcdef"))
   end
 
+  it "parses the post id for urls with hex characters after a /" do
+    request = resource_request("/@user/bacon-abcdef123456")
+
+    result = ArticleIdParser.parse(request)
+
+    result.should eq(Monads::Just.new("abcdef123456"))
+  end
+
   it "parses the post id for urls like /user/:post_slug" do
     request = resource_request("/user/my-post-222222abcdef")
 

@@ -2,6 +2,7 @@
 
 * Better article ID parsing
 * Link to full Medium URL on error page
+* Fix article ID parsing bug
 
 2022-02-12
 
