@@ -40,7 +40,7 @@ class Faq::IndexPage < MainLayout
           strong "Redirect to: "
           code "https://"
           code app_domain
-          code "/$2"
+          code "$2"
         end
         li do
           strong "Pattern type: "
