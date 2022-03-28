@@ -4,6 +4,7 @@
 * <https://scribe.nixnet.services>
 * <https://scribe.citizen4.eu>
 * <https://scribe.bus-hit.me>
+* <https://scribe.froth.zone>
 
 ## How do I get my instance on this list?
 
