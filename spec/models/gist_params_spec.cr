@@ -10,6 +10,16 @@ describe GistParams do
     params.filename.should eq("example.txt")
   end
 
+  describe "when gist file has a file extension" do
+    it "extracts params from the gist url" do
+      url = "https://gist.github.com/user/1d.js"
+
+      params = GistParams.extract_from_url(url)
+
+      params.id.should eq("1d")
+    end
+  end
+
   describe "when no file param exists" do
     it "does not extract a filename" do
       url = "https://gist.github.com/user/1D"
