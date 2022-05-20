@@ -6,8 +6,6 @@ This is a project written using [Lucky](https://luckyframework.org). It's main w
 
 I'd love it if you deployed your own version of this app! A [few others](docs/instances.md) have already. To do so currently will take some knowledge of how a webserver runs. This app is built with the [Lucky framework](https://luckyframework.org) and there are a bunch of different ways to deploy. The main instance runs on [Ubuntu](https://luckyframework.org/guides/deploying/ubuntu) but there are also directions for [Heroku](https://luckyframework.org/guides/deploying/heroku) or [Dokku](https://luckyframework.org/guides/deploying/dokku).
 
-One thing to note is that this app doesn't currently use a database. Any instructions around postgres can be safely ignored. However, Lucky (and it's dependency Avram) do require a `DATABASE_URL` formatted for postgres. It doesn't need to be the URL of an actual database server though. Here's mine: `DATABASE_URL=postgres://does@not/mater`
-
 Hopefully a more comprehensive guide will be written at some point, but for now feel free to reach out to the [mailing list](https://lists.sr.ht/~edwardloveall/scribe) if you have any questions.
 
 ### Docker (Unsupported)
@@ -23,7 +21,7 @@ $ docker build [--build-arg PUID=1000] [--build-arg PGID=1000] -t scribe:latest 
 To run (generating a base config from environment variables):
 
 ```
-$ docker run -it --rm -p 8080:8080 -e SCRIBE_PORT=8080 -e SCRIBE_HOST=0.0.0.0 -e SCRIBE_DB=postgres://does@not/matter scribe:latest
+$ docker run -it --rm -p 8080:8080 -e SCRIBE_PORT=8080 -e SCRIBE_HOST=0.0.0.0 scribe:latest
 ```
 
 To run with mounted config from local fs:
@@ -42,8 +40,6 @@ Other configuration needed when in `production` mode:
 
 * PORT: The port Scribe should run on
 * SECRET_KEY_BASE: A 32-bit string. Can be generated with `lucky gen.secret_key`
-* DATABASE_URL: May be any valid postgres url since Scribe doesn't use a database
-  * Example: `postgres://does@not/matter`
 * GITHUB_PERSONAL_ACCESS_TOKEN: to proxy gists with authenticated GitHub API requests
 * GITHUB_USERNAME: to proxy gists with authenticated GitHub API requests
 

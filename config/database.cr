@@ -1,24 +1,10 @@
-database_name = "scribe_#{LuckyEnv.environment}"
+class UnusedDB < Avram::Database
+end
 
-AppDatabase.configure do |settings|
-  if LuckyEnv.production?
-    settings.credentials = Avram::Credentials.parse(ENV["DATABASE_URL"])
-  else
-    settings.credentials = Avram::Credentials.parse?(ENV["DATABASE_URL"]?) || Avram::Credentials.new(
-      database: database_name,
-      hostname: ENV["DB_HOST"]? || "localhost",
-      port: ENV["DB_PORT"]?.try(&.to_i) || 5432,
-      username: ENV["DB_USERNAME"]? || "postgres",
-      password: ENV["DB_PASSWORD"]? || "postgres"
-    )
-  end
+UnusedDB.configure do |settings|
+  settings.credentials = Avram::Credentials.void
 end
 
 Avram.configure do |settings|
-  settings.database_to_migrate = AppDatabase
-  settings.lazy_load_enabled = LuckyEnv.production?
-
-  # Always parse `Time` values with these specific formats.
-  # Used for both database values, and datetime input fields.
-  # settings.time_formats << "%F"
+  settings.database_to_migrate = UnusedDB
 end
