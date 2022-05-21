@@ -1,3 +1,7 @@
+2022-05-21
+
+* Remove the need for a fake DATABASE_URL
+
 2022-04-04
 
 * Fix gist files with file extensions
