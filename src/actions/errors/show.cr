@@ -4,6 +4,10 @@ class Errors::Show < Lucky::ErrorAction
   default_format :html
   dont_report [Lucky::RouteNotFoundError, Avram::RecordNotFoundError]
 
+  def render(error : MissingPageError)
+    error_html message: "This article is missing.", status: 404
+  end
+
   def render(error : Lucky::RouteNotFoundError | Avram::RecordNotFoundError)
     if html?
       error_html "Sorry, we couldn't find that page.", status: 404

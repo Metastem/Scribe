@@ -17,8 +17,8 @@ describe PageConverter do
         }
       ]
     JSON
-    data_json = default_data_json(title, paragraph_json)
-    data = PostResponse::Data.from_json(data_json)
+    data_json = default_post_json(title, paragraph_json)
+    data = PostResponse::Post.from_json(data_json)
 
     page = PageConverter.new.convert(data)
 
@@ -26,52 +26,48 @@ describe PageConverter do
   end
 
   it "sets the author" do
-    data_json = <<-JSON
+    post_json = <<-JSON
       {
-        "post": {
-          "title": "This is a story",
-          "createdAt": 0,
-          "creator": {
-            "id": "abc123",
-            "name": "Author"
-          },
-          "content": {
-            "bodyModel": {
-              "paragraphs": []
-            }
+        "title": "This is a story",
+        "createdAt": 0,
+        "creator": {
+          "id": "abc123",
+          "name": "Author"
+        },
+        "content": {
+          "bodyModel": {
+            "paragraphs": []
           }
         }
       }
     JSON
-    data = PostResponse::Data.from_json(data_json)
+    post = PostResponse::Post.from_json(post_json)
 
-    page = PageConverter.new.convert(data)
+    page = PageConverter.new.convert(post)
 
     page.author.name.should eq "Author"
     page.author.id.should eq "abc123"
   end
 
   it "sets the publish date/time" do
-    data_json = <<-JSON
+    post_json = <<-JSON
       {
-        "post": {
-          "title": "This is a story",
-          "createdAt": 1000,
-          "creator": {
-            "id": "abc123",
-            "name": "Author"
-          },
-          "content": {
-            "bodyModel": {
-              "paragraphs": []
-            }
+        "title": "This is a story",
+        "createdAt": 1000,
+        "creator": {
+          "id": "abc123",
+          "name": "Author"
+        },
+        "content": {
+          "bodyModel": {
+            "paragraphs": []
           }
         }
       }
     JSON
-    data = PostResponse::Data.from_json(data_json)
+    post = PostResponse::Post.from_json(post_json)
 
-    page = PageConverter.new.convert(data)
+    page = PageConverter.new.convert(post)
 
     page.created_at.should eq Time.utc(1970, 1, 1, 0, 0, 1)
   end
@@ -98,8 +94,8 @@ describe PageConverter do
         }
       ]
     JSON
-    data_json = default_data_json(title, paragraph_json)
-    data = PostResponse::Data.from_json(data_json)
+    post_json = default_post_json(title, paragraph_json)
+    data = PostResponse::Post.from_json(post_json)
 
     page = PageConverter.new.convert(data)
 
@@ -115,23 +111,21 @@ def default_paragraph_json
   "[]"
 end
 
-def default_data_json(
+def default_post_json(
   title : String = "This is a story",
   paragraph_json : String = default_paragraph_json
 )
   <<-JSON
     {
-      "post": {
-        "title": "#{title}",
-        "createdAt": 1628974309758,
-        "creator": {
-          "id": "abc123",
-          "name": "Author"
-        },
-        "content": {
-          "bodyModel": {
-            "paragraphs": #{paragraph_json}
-          }
+      "title": "#{title}",
+      "createdAt": 1628974309758,
+      "creator": {
+        "id": "abc123",
+        "name": "Author"
+      },
+      "content": {
+        "bodyModel": {
+          "paragraphs": #{paragraph_json}
         }
       }
     }

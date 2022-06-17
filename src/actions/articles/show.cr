@@ -6,8 +6,8 @@ class Articles::Show < BrowserAction
     case post_id
     in Monads::Just
       response = client_class.post_data(post_id.value!)
-      page = PageConverter.new.convert(response.data)
-      html ShowPage, page: page
+      page = PageConverter.new.convert(response.data.post)
+      render_page(page)
     in Monads::Nothing, Monads::Maybe
       html(
         Errors::ParseErrorPage,
@@ -16,6 +16,14 @@ class Articles::Show < BrowserAction
         original_resource: request.resource,
       )
     end
+  end
+
+  def render_page(page : Page)
+    html ShowPage, page: page
+  end
+
+  def render_page(page : MissingPage)
+    raise MissingPageError.new
   end
 
   def client_class

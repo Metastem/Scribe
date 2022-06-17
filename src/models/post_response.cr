@@ -8,7 +8,7 @@ class PostResponse
   end
 
   class Data < Base
-    property post : Post
+    property post : Post?
   end
 
   class Post < Base
