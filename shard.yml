@@ -13,10 +13,10 @@ crystal: 1.2.1
 dependencies:
   lucky:
     github: luckyframework/lucky
-    version: ~> 0.29.0
+    version: ~> 0.30.1
   authentic:
     github: luckyframework/authentic
-    version: ~> 0.8.1
+    version: ~> 0.8.2
   carbon:
     github: luckyframework/carbon
     version: ~> 0.2.0
