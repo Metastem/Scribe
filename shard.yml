@@ -8,7 +8,7 @@ targets:
   scribe:
     main: src/scribe.cr
 
-crystal: 1.2.1
+crystal: 1.5.0
 
 dependencies:
   lucky:
