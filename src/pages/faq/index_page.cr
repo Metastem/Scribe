@@ -22,58 +22,16 @@ class Faq::IndexPage < MainLayout
         a "This extension", href: "https://einaregilsson.com/redirector/"
         text " works well across most browsers."
       end
-      para "Once installed, create a new redirect with the following settings:"
-      ul do
-        li do
-          strong "Description: "
-          code "Medium -> Scribe"
-        end
-        li do
-          strong "Example URL: "
-          code "https://medium.com/@user/post-123456abcdef"
-        end
-        li do
-          strong "Include pattern: "
-          code "^https?://(?:.*\\.)*(?<!(link\\.|cdn\\-images\\-\\d+\\.))medium\\.com(/.*)?$"
-        end
-        li do
-          strong "Redirect to: "
-          code "https://"
-          code app_domain
-          code "$2"
-        end
-        li do
-          strong "Pattern type: "
-          code "( ) Wildcard   (•) Regular Expression"
-        end
+      para do
+        text "Once installed download a configuration file by "
+        link "clicking here", to: RedirectionConfig::Index
+        text "."
       end
-      h3 "Advanced options"
-      ul do
-        li do
-          strong "Exclude pattern: "
-          text "(leave blank)"
-        end
-        li do
-          strong "Process matches: "
-          code "No Processing"
-        end
-        li do
-          strong "Apply to: "
-          ul do
-            li { code "[x] Main window (address bar)" }
-            li { code "[x] IFrames" }
-            li { code "[ ] Stylesheets" }
-            li { code "[ ] Scripts" }
-            li { code "[ ] Images" }
-            li { code "[ ] Responsive images" }
-            li { code "[ ] Objects" }
-            li { code "[x] XMLHttpRequests" }
-            li { code "[x] History State" }
-            li { code "[x] Other" }
-          end
-        end
+      para do
+        text "Install it by opening the extension preferences, editing redirects, clicking "
+        code "Import"
+        text " and selecting the downloaded file. This will add a new redirection and not overwrite any existing ones. Now visiting any medium.com site (including user.medium.com subdomains) should redirect to Scribe instead!"
       end
-      para "Visiting any medium.com site (including user.medium.com subdomains) should now redirect to Scribe instead!"
     end
   end
 
