@@ -4,7 +4,7 @@ class Shared::LayoutFooter < BaseComponent
       footer do
         para do
           span do
-            a "Source code", href: "https://sr.ht/~edwardloveall/scribe"
+            a "Source code", href: "https://sr.ht/~edwardloveall/Scribe"
           end
           span do
             text "Version: #{Scribe::VERSION}"
