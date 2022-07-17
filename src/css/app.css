@@ -34,3 +34,10 @@ figure iframe {
 footer p span {
   margin-right: 1em;
 }
+
+pre {
+  background-color: rgba(127, 127, 127, 0.1);
+  padding: 1em;
+  overflow-x: scroll;
+  width: 100%;
+}
