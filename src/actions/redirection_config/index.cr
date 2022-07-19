@@ -15,34 +15,35 @@ class RedirectionConfig::Index < Lucky::Action
   end
 
   private def config_json
+    double_escaped_pattern = "^https?://(?:.*\\\\.)*(?<!(link\\\\.|cdn\\\\-images\\\\-\\\\d+\\\\.))medium\\\\.com(/.*)?$"
     <<-JSON
-      {
-        "createdBy": "Redirector v3.5.3",
-        "createdAt": "2022-07-17T00:00:00.000Z",
-        "redirects": [
-          {
-            "description": "Medium -> Scribe",
-            "exampleUrl": "https://medium.com/@user/post-123456abcdef",
-            "exampleResult": "https://#{app_domain}/@user/post-123456abcdef",
-            "error": null,
-            "includePattern": "^https?://(?:.*\\.)*(?<!(link\\.|cdn\\-images\\-\\d+\\.))medium\\.com(/.*)?$",
-            "excludePattern": "",
-            "patternDesc": "",
-            "redirectUrl": "https://#{app_domain}$2",
-            "patternType": "R",
-            "processMatches": "noProcessing",
-            "disabled": false,
-            "grouped": false,
-            "appliesTo": [
-              "main_frame",
-              "sub_frame",
-              "xmlhttprequest",
-              "history",
-              "other"
-            ]
-          }
-        ]
-      }
+    {
+      "createdBy": "Redirector v3.5.3",
+      "createdAt": "2022-07-17T00:00:00.000Z",
+      "redirects": [
+        {
+          "description": "Medium -> Scribe",
+          "exampleUrl": "https://medium.com/@user/post-123456abcdef",
+          "exampleResult": "https://#{app_domain}/@user/post-123456abcdef",
+          "error": null,
+          "includePattern": "#{double_escaped_pattern}",
+          "excludePattern": "",
+          "patternDesc": "",
+          "redirectUrl": "https://#{app_domain}$2",
+          "patternType": "R",
+          "processMatches": "noProcessing",
+          "disabled": false,
+          "grouped": false,
+          "appliesTo": [
+            "main_frame",
+            "sub_frame",
+            "xmlhttprequest",
+            "history",
+            "other"
+          ]
+        }
+      ]
+    }
     JSON
   end
 
