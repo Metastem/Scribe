@@ -5,6 +5,7 @@
 * <https://scribe.citizen4.eu>
 * <https://scribe.bus-hit.me>
 * <https://scribe.froth.zone>
+* <https://scribe.esmailelbob.xyz>
 
 ## How do I get my instance on this list?
 
