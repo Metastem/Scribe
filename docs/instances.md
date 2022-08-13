@@ -6,6 +6,7 @@
 * <https://scribe.bus-hit.me>
 * <https://scribe.froth.zone>
 * <https://scribe.esmailelbob.xyz>
+* <https://scribe.privacydev.net>
 * <scribe.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion> (Tor)
 
 ## How do I get my instance on this list?
