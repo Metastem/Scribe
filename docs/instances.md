@@ -7,7 +7,9 @@
 * <https://scribe.froth.zone>
 * <https://scribe.esmailelbob.xyz>
 * <https://scribe.privacydev.net>
+* <https://scribe.rawbit.ninja>
 * <scribe.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion> (Tor)
+* <http://w7uhv5lxhgck72hhimdglmusc54t4m6bionlmd5mvyddq3bs53mohqid.onion> (Tor)
 
 ## How do I get my instance on this list?
 
