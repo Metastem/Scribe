@@ -8,7 +8,7 @@
 * <https://scribe.esmailelbob.xyz>
 * <https://scribe.privacydev.net>
 * <https://scribe.rawbit.ninja>
-* <scribe.lqs5fjmajyp7rvp4qvyubwofzi6d4imua7vs237rkc4m5qogitqwrgyd.onion> (Tor)
+* <http://scribe.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion> (Tor)
 * <http://w7uhv5lxhgck72hhimdglmusc54t4m6bionlmd5mvyddq3bs53mohqid.onion> (Tor)
 * [sc.vern.i2p](http://vern3whzyfmjclq6snhlupma6nrmojghwp37tydfgqotj7sc6izq.b32.i2p) (I2P)
 
