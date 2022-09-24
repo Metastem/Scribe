@@ -18,19 +18,9 @@ class Faq::IndexPage < MainLayout
     section do
       h2 "How-to Automatically Redirect Medium Articles"
       para do
-        text "If you don't want to manually change the URL every time, you can use an extension to do it for you. "
-        a "This extension", href: "https://einaregilsson.com/redirector/"
-        text " works well across most browsers."
-      end
-      para do
-        text "Once installed download a configuration file by "
-        link "clicking here", to: RedirectionConfig::Index
-        text "."
-      end
-      para do
-        text "Install it by opening the extension preferences, editing redirects, clicking "
-        code "Import"
-        text " and selecting the downloaded file. This will add a new redirection and not overwrite any existing ones. Now visiting any medium.com site (including user.medium.com subdomains) should redirect to Scribe instead!"
+        text "If you don't want to manually change the URL every time, you can use an extension to do it for you. The "
+        a "LibRedirect extention", href: "https://libredirect.github.io/"
+        text " works well across most browsers, and will also redirect to other alternative services."
       end
     end
   end
