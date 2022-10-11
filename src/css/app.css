@@ -11,6 +11,10 @@ p.meta {
   width: 55%;
 }
 
+.gist > code {
+  width: 100% !important;
+}
+
 @media (max-width: 760px) {
   .gist {
     width: 100%;
