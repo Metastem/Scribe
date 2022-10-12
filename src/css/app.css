@@ -7,17 +7,22 @@ p.meta {
   line-height: 1;
 }
 
-.gist {
-  width: 55%;
+pre {
+  background-color: rgba(127, 127, 127, 0.1);
+  margin-right: 1em;
+  padding: 1em;
+  padding-left: 2em;
+  overflow-x: scroll;
 }
 
-.gist > code {
-  width: 100% !important;
+pre > code {
+  margin-left: 0;
+  width: 100%;
 }
 
 @media (max-width: 760px) {
-  .gist {
-    width: 100%;
+  pre {
+    margin-right: 0;
   }
 }
 
@@ -37,11 +42,4 @@ figure iframe {
 
 footer p span {
   margin-right: 1em;
-}
-
-pre {
-  background-color: rgba(127, 127, 127, 0.1);
-  padding: 1em;
-  overflow-x: scroll;
-  width: 100%;
 }
