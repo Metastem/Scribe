@@ -1,7 +1,7 @@
 class ArticleIdParser
   include Monads
 
-  ID_REGEX = /[\/\-]([0-9a-f]+)$/i
+  ID_REGEX = /[\/\-]([0-9a-f]+)\/?$/i
 
   def self.parse(request : HTTP::Request)
     new.parse(request)
