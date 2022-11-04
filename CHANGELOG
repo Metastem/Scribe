@@ -1,3 +1,7 @@
+2022-10-30
+
+Fix viewing articles if the URL has a trailing slash
+
 2022-10-11
 
 * Don't clip gist contents (CSS fix)
