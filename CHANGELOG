@@ -1,6 +1,10 @@
 2022-10-30
 
-Fix viewing articles if the URL has a trailing slash
+* Update to nodejs 16.18.0
+
+2022-10-30
+
+* Fix viewing articles if the URL has a trailing slash
 
 2022-10-11
 
