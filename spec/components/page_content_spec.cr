@@ -184,13 +184,13 @@ describe PageContent do
       nodes: [
         Heading1.new(children: [
           Text.new(content: "Title!"),
-        ] of Child),
+        ] of Child, identifier: "ab12"),
       ] of Child
     )
 
     html = PageContent.new(page: page).render_to_string
 
-    html.should eq %(<h1>Title!</h1>)
+    html.should eq %(<h1 id="ab12">Title!</h1>)
   end
 
   it "renders an H3" do
@@ -201,13 +201,13 @@ describe PageContent do
       nodes: [
         Heading2.new(children: [
           Text.new(content: "Title!"),
-        ] of Child),
+        ] of Child, identifier: "ab12"),
       ] of Child
     )
 
     html = PageContent.new(page: page).render_to_string
 
-    html.should eq %(<h2>Title!</h2>)
+    html.should eq %(<h2 id="ab12">Title!</h2>)
   end
 
   it "renders an H4" do
@@ -218,13 +218,13 @@ describe PageContent do
       nodes: [
         Heading3.new(children: [
           Text.new(content: "In Conclusion..."),
-        ] of Child),
+        ] of Child, identifier: "ab12"),
       ] of Child
     )
 
     html = PageContent.new(page: page).render_to_string
 
-    html.should eq %(<h3>In Conclusion...</h3>)
+    html.should eq %(<h3 id="ab12">In Conclusion...</h3>)
   end
 
   it "renders an image" do

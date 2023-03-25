@@ -8,6 +8,7 @@ describe EmbeddedConverter do
       store = GistStore.new
       paragraph = PostResponse::Paragraph.from_json <<-JSON
         {
+          "name": "ab12",
           "text": "",
           "type": "IFRAME",
           "href": null,
@@ -44,6 +45,7 @@ describe EmbeddedConverter do
         store = GistStore.new
         paragraph = PostResponse::Paragraph.from_json <<-JSON
           {
+            "name": "ab12",
             "text": "",
             "type": "IFRAME",
             "href": null,
@@ -73,6 +75,7 @@ describe EmbeddedConverter do
         store = GistStore.new
         paragraph = PostResponse::Paragraph.from_json <<-JSON
           {
+            "name": "ab12",
             "text": "",
             "type": "IFRAME",
             "href": null,

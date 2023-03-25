@@ -93,15 +93,15 @@ class PageContent < BaseComponent
   end
 
   def render_child(node : Heading1)
-    h1 { render_children(node.children) }
+    h1(id: node.identifier) { render_children(node.children) }
   end
 
   def render_child(node : Heading2)
-    h2 { render_children(node.children) }
+    h2(id: node.identifier) { render_children(node.children) }
   end
 
   def render_child(node : Heading3)
-    h3 { render_children(node.children) }
+    h3(id: node.identifier) { render_children(node.children) }
   end
 
   def render_child(child : Image)

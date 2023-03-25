@@ -8,6 +8,7 @@ describe ParagraphConverter do
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
+          "name": "ab12",
           "text": "Title",
           "type": "H3",
           "markups": [],
@@ -17,7 +18,7 @@ describe ParagraphConverter do
         }
       ]
     JSON
-    expected = [Heading3.new(children: [Text.new(content: "Title")] of Child)]
+    expected = [Heading3.new(children: [Text.new(content: "Title")] of Child, identifier: "ab12")]
 
     result = ParagraphConverter.new.convert(paragraphs, gist_store)
 
@@ -29,6 +30,7 @@ describe ParagraphConverter do
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
+          "name": "ab12",
           "text": "inline code",
           "type": "P",
           "markups": [
@@ -66,6 +68,7 @@ describe ParagraphConverter do
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
+          "name": "ab12",
           "text": "One",
           "type": "ULI",
           "markups": [],
@@ -74,6 +77,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab13",
           "text": "Two",
           "type": "ULI",
           "markups": [],
@@ -82,6 +86,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab14",
           "text": "Not a list item",
           "type": "P",
           "markups": [],
@@ -109,6 +114,7 @@ describe ParagraphConverter do
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
+          "name": "ab12",
           "text": "One",
           "type": "OLI",
           "markups": [],
@@ -117,6 +123,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab13",
           "text": "Two",
           "type": "OLI",
           "markups": [],
@@ -125,6 +132,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab14",
           "text": "Not a list item",
           "type": "P",
           "markups": [],
@@ -151,6 +159,7 @@ describe ParagraphConverter do
     gist_store = GistStore.new
     paragraph = PostResponse::Paragraph.from_json <<-JSON
       {
+        "name": "ab12",
         "text": "Image by someuser",
         "type": "IMG",
         "markups": [
@@ -197,6 +206,7 @@ describe ParagraphConverter do
     paragraphs = Array(PostResponse::Paragraph).from_json <<-JSON
       [
         {
+          "name": "ab12",
           "text": "text",
           "type": "H2",
           "markups": [],
@@ -205,6 +215,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab13",
           "text": "text",
           "type": "H3",
           "markups": [],
@@ -213,6 +224,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab14",
           "text": "text",
           "type": "H4",
           "markups": [],
@@ -221,6 +233,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab15",
           "text": "text",
           "type": "P",
           "markups": [],
@@ -229,6 +242,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab16",
           "text": "text",
           "type": "PRE",
           "markups": [],
@@ -237,6 +251,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab17",
           "text": "text",
           "type": "BQ",
           "markups": [],
@@ -245,6 +260,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab18",
           "text": "text",
           "type": "PQ",
           "markups": [],
@@ -253,6 +269,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab19",
           "text": "text",
           "type": "ULI",
           "markups": [],
@@ -261,6 +278,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab20",
           "text": "text",
           "type": "OLI",
           "markups": [],
@@ -269,6 +287,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab21",
           "text": "text",
           "type": "IMG",
           "markups": [],
@@ -281,6 +300,7 @@ describe ParagraphConverter do
           }
         },
         {
+          "name": "ab22",
           "text": "",
           "type": "IFRAME",
           "markups": [],
@@ -296,6 +316,7 @@ describe ParagraphConverter do
           "metadata": null
         },
         {
+          "name": "ab23",
           "text": "Mixtape",
           "type": "MIXTAPE_EMBED",
           "href": null,
@@ -317,9 +338,9 @@ describe ParagraphConverter do
       ]
     JSON
     expected = [
-      Heading1.new([Text.new("text")] of Child),
-      Heading2.new([Text.new("text")] of Child),
-      Heading3.new([Text.new("text")] of Child),
+      Heading1.new([Text.new("text")] of Child, identifier: "ab12"),
+      Heading2.new([Text.new("text")] of Child, identifier: "ab13"),
+      Heading3.new([Text.new("text")] of Child, identifier: "ab14"),
       Paragraph.new([Text.new("text")] of Child),
       Preformatted.new([Text.new("text")] of Child),
       BlockQuote.new([Text.new("text")] of Child), # BQ

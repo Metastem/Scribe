@@ -32,6 +32,7 @@ class PostResponse
   end
 
   class Paragraph < Base
+    property name : String?
     property text : String?
     property type : ParagraphType
     property markups : Array(Markup)
@@ -40,6 +41,7 @@ class PostResponse
     property metadata : Metadata?
 
     def initialize(
+      @name : String,
       @text : String?,
       @type : ParagraphType,
       @markups : Array(Markup),

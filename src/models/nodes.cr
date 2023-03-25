@@ -41,12 +41,24 @@ module Nodes
   end
 
   class Heading1 < Container
+    getter identifier : String
+
+    def initialize(@children : Children, @identifier : String)
+    end
   end
 
   class Heading2 < Container
+    getter identifier : String
+
+    def initialize(@children : Children, @identifier : String)
+    end
   end
 
   class Heading3 < Container
+    getter identifier : String
+
+    def initialize(@children : Children, @identifier : String)
+    end
   end
 
   class ListItem < Container

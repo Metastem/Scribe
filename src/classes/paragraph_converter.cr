@@ -16,15 +16,15 @@ class ParagraphConverter
       when PostResponse::ParagraphType::H2
         paragraph = paragraphs.shift
         children = MarkupConverter.convert(paragraph.text, paragraph.markups)
-        node = Heading1.new(children: children)
+        node = Heading1.new(children: children, identifier: paragraph.name || "")
       when PostResponse::ParagraphType::H3
         paragraph = paragraphs.shift
         children = MarkupConverter.convert(paragraph.text, paragraph.markups)
-        node = Heading2.new(children: children)
+        node = Heading2.new(children: children, identifier: paragraph.name || "")
       when PostResponse::ParagraphType::H4
         paragraph = paragraphs.shift
         children = MarkupConverter.convert(paragraph.text, paragraph.markups)
-        node = Heading3.new(children: children)
+        node = Heading3.new(children: children, identifier: paragraph.name || "")
       when PostResponse::ParagraphType::IFRAME
         paragraph = paragraphs.shift
         node = EmbeddedConverter.convert(paragraph, gist_store)

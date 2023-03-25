@@ -8,6 +8,7 @@ describe PageConverter do
     paragraph_json = <<-JSON
       [
         {
+          "name": "ab12",
           "text": "#{title}",
           "type": "H3",
           "markups": [],
@@ -28,6 +29,7 @@ describe PageConverter do
   it "sets the author" do
     post_json = <<-JSON
       {
+        "name": "ab12",
         "title": "This is a story",
         "createdAt": 0,
         "creator": {
@@ -52,6 +54,7 @@ describe PageConverter do
   it "sets the publish date/time" do
     post_json = <<-JSON
       {
+        "name": "ab12",
         "title": "This is a story",
         "createdAt": 1000,
         "creator": {
@@ -77,6 +80,7 @@ describe PageConverter do
     paragraph_json = <<-JSON
       [
         {
+          "name": "ab12",
           "text": "#{title}",
           "type": "H3",
           "markups": [],
@@ -85,6 +89,7 @@ describe PageConverter do
           "metadata": null
         },
         {
+          "name": "ab12",
           "text": "Content",
           "type": "P",
           "markups": [],
@@ -117,6 +122,7 @@ def default_post_json(
 )
   <<-JSON
     {
+      "name": "ab12",
       "title": "#{title}",
       "createdAt": 1628974309758,
       "creator": {

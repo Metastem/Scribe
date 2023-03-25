@@ -12,6 +12,7 @@ describe GistScanner do
     )
     paragraphs = [
       PostResponse::Paragraph.new(
+        name: "ab12",
         text: "Check out this gist:",
         type: PostResponse::ParagraphType::P,
         markups: [] of PostResponse::Markup,
@@ -20,6 +21,7 @@ describe GistScanner do
         metadata: nil
       ),
       PostResponse::Paragraph.new(
+        name: "ab13",
         text: "",
         type: PostResponse::ParagraphType::IFRAME,
         markups: [] of PostResponse::Markup,
@@ -45,6 +47,7 @@ describe GistScanner do
     )
     paragraphs = [
       PostResponse::Paragraph.new(
+        name: "ab12",
         text: "",
         type: PostResponse::ParagraphType::IFRAME,
         markups: [] of PostResponse::Markup,
@@ -78,6 +81,7 @@ describe GistScanner do
     )
     paragraphs = [
       PostResponse::Paragraph.new(
+        name: "ab12",
         text: "",
         type: PostResponse::ParagraphType::IFRAME,
         markups: [] of PostResponse::Markup,
@@ -86,6 +90,7 @@ describe GistScanner do
         metadata: nil
       ),
       PostResponse::Paragraph.new(
+        name: "ab13",
         text: "",
         type: PostResponse::ParagraphType::IFRAME,
         markups: [] of PostResponse::Markup,

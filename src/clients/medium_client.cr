@@ -27,6 +27,7 @@ class MediumClient
           content {
             bodyModel {
               paragraphs {
+                name
                 text
                 type
                 href
