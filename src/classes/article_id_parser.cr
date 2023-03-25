@@ -10,7 +10,7 @@ class ArticleIdParser
   def parse(request : HTTP::Request) : Maybe
     from_params = post_id_from_params(request.query_params)
     from_path = post_id_from_path(request.path)
-    from_path.or(from_params)
+    from_params.or(from_path)
   end
 
   private def post_id_from_path(request_path : String)

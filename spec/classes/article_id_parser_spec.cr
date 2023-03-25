@@ -78,6 +78,14 @@ describe ArticleIdParser do
     result.should eq(Monads::Just.new("888888abcdef"))
   end
 
+  it "parses the post id for global identity 2 redirects" do
+    request = resource_request("/m/global-identity-2?redirectUrl=https%3A%2F%2Fexample.com%2Fmy-post-999999abcdef")
+
+    result = ArticleIdParser.parse(request)
+
+    result.should eq(Monads::Just.new("999999abcdef"))
+  end
+
   it "returns Nothing if path is a username" do
     request = resource_request("/@ba5eba11")
 
