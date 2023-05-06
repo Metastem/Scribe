@@ -2,7 +2,7 @@ version: 2.0
 shards:
   authentic:
     git: https://github.com/luckyframework/authentic.git
-    version: 0.9.0
+    version: 1.0.0
 
   avram:
     git: https://github.com/luckyframework/avram.git
