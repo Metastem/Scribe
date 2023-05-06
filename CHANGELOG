@@ -1,3 +1,19 @@
+2023-05-06
+
+* Upgrade to Lucky framework 1.0.0
+* Upgrade to Crystal version 1.8.1
+* If embedded media has a caption, it will now be displayed
+
+2023-03-25
+
+* Headings now have an ID so readers can link to a part if an article
+* If a URL contains `global-identity-2`, Scribe will now correctly parse the article ID.
+
+2022-11-06
+
+* Fix viewing articles if the URL has a trailing slash
+* Update to nodejs 16.18.0
+
 2022-10-30
 
 * Update to nodejs 16.18.0
