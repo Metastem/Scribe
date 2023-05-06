@@ -37,6 +37,44 @@ describe EmbeddedConverter do
         )
       )
     end
+
+    context "and a caption exists" do
+      it "returns an EmbeddedContent node with caption" do
+        store = GistStore.new
+        paragraph = PostResponse::Paragraph.from_json <<-JSON
+          {
+            "name": "ab12",
+            "text": "Caption",
+            "type": "IFRAME",
+            "href": null,
+            "layout": "INSET_CENTER",
+            "markups": [],
+            "iframe": {
+              "mediaResource": {
+                "id": "abc123",
+                "href": "https://twitter.com/user/status/1",
+                "iframeSrc": "https://cdn.embedly.com/widgets/...",
+                "iframeWidth": 500,
+                "iframeHeight": 281
+              }
+            },
+            "metadata": null
+          }
+        JSON
+        caption = FigureCaption.new(children: [Text.new("Caption")] of Child)
+
+        result = EmbeddedConverter.convert(paragraph, store)
+
+        result.should eq(
+          EmbeddedContent.new(
+            src: "https://cdn.embedly.com/widgets/...",
+            originalWidth: 500,
+            originalHeight: 281,
+            caption: caption,
+          )
+        )
+      end
+    end
   end
 
   context "when the mediaResource has a blank iframeSrc value" do

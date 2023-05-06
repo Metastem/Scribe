@@ -34,8 +34,16 @@ class EmbeddedConverter
       EmbeddedContent.new(
         src: media.iframeSrc,
         originalWidth: media.iframeWidth,
-        originalHeight: media.iframeHeight
+        originalHeight: media.iframeHeight,
+        caption: caption
       )
+    end
+  end
+
+  private def caption : FigureCaption?
+    if !paragraph.text.blank?
+      children = [Text.new(paragraph.text || "")] of Child
+      FigureCaption.new(children: children)
     end
   end
 

@@ -147,8 +147,14 @@ module Nodes
     MAX_WIDTH = 800
 
     getter src : String
+    getter caption : FigureCaption?
 
-    def initialize(@src : String, @originalWidth : Int32, @originalHeight : Int32)
+    def initialize(
+      @src : String,
+      @originalWidth : Int32,
+      @originalHeight : Int32,
+      @caption : FigureCaption? = nil
+    )
     end
 
     def width
@@ -168,7 +174,10 @@ module Nodes
     end
 
     def ==(other : EmbeddedContent)
-      other.src == src && other.width == width && other.height == height
+      other.src == src &&
+        other.width == width &&
+        other.height == height &&
+        other.caption == caption
     end
 
     def empty?

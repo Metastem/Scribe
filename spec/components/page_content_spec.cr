@@ -249,6 +249,7 @@ describe PageContent do
   end
 
   it "renders embedded content" do
+    caption_children = [Text.new("Caption")] of Child
     page = Page.new(
       title: "Title",
       author: user_anchor_factory,
@@ -258,6 +259,7 @@ describe PageContent do
           src: "https://example.com",
           originalWidth: 1000,
           originalHeight: 600,
+          caption: FigureCaption.new(children: caption_children)
         ),
       ] of Child
     )
@@ -268,6 +270,11 @@ describe PageContent do
       <figure>
         <iframe src="https://example.com" width="800" height="480" frameborder="0" allowfullscreen="true">
         </iframe>
+        <label class="margin-toggle" for="#{caption_children.hash}">&#9997;&#xFE0E;</label>
+        <input class="margin-toggle" type="checkbox" id="#{caption_children.hash}">
+        <span class="marginnote">
+          Caption
+        </span>
       </figure>
     HTML
   end

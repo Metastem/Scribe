@@ -40,6 +40,9 @@ class PageContent < BaseComponent
         frameborder: "0",
         allowfullscreen: true,
       )
+      if caption = child.caption
+        render_child(caption)
+      end
     end
   end
 
