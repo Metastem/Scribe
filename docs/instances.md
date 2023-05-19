@@ -8,6 +8,7 @@
 * <https://scribe.esmailelbob.xyz>
 * <https://scribe.privacydev.net>
 * <https://scribe.rawbit.ninja>
+* <https://m.opnxng.com>
 * <http://scribe.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion> (Tor)
 * <http://w7uhv5lxhgck72hhimdglmusc54t4m6bionlmd5mvyddq3bs53mohqid.onion> (Tor)
 * <http://scribe.g4c3eya4clenolymqbpgwz3q3tawoxw56yhzk4vugqrl6dtu3ejvhjid.onion> (Tor)
