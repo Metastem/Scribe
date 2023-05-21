@@ -10,7 +10,6 @@ require "./support/**"
 require "../db/migrations/**"
 require "./setup/**"
 
-include Carbon::Expectations
 include Lucky::RequestExpectations
 include LuckyFlow::Expectations
 
