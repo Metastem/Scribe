@@ -3,7 +3,7 @@ WORKDIR /tmp_build
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --network-timeout 120000
+RUN yarn install --network-timeout 120000 --no-progress --frozen-lockfile
 
 COPY webpack.mix.js .
 COPY src ./src
