@@ -10,7 +10,6 @@ pkgs.mkShell {
     overmind
     nodejs
     openssl.dev
-    postgresql
     shards
     yarn
   ];

@@ -17,17 +17,6 @@ if command_not_found "yarn"; then
   print_error "Yarn is not installed\n  See https://yarnpkg.com/lang/en/docs/install/ for install instructions."
 fi
 
-if command_not_found "createdb"; then
-  MSG="Please install the postgres CLI tools, then try again."
-  if is_mac; then
-    MSG="$MSG\nIf you're using Postgres.app, see https://postgresapp.com/documentation/cli-tools.html."
-  fi
-  MSG="$MSG\nSee https://www.postgresql.org/docs/current/tutorial-install.html for install instructions."
-
-  print_error "$MSG"
-fi
-
-
 ## CUSTOM PRE-BOOT CHECKS ##
 # example:
 # if command_not_running "redis-cli ping"; then
