@@ -1,6 +1,6 @@
 {
   "name": "scribe-ui",
-  "license": "UNLICENSED",
+  "license": "AGPL-3.0-or-later",
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",
