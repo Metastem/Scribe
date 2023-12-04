@@ -1,10 +1,11 @@
 {
+  "name": "scribe-ui",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",
     "compression-webpack-plugin": "^8.0.1",
-    "laravel-mix": "^6.0.28",
+    "laravel-mix": "^6.0.49",
     "modern-normalize": "^1.1.0",
     "postcss": "^8.3.6",
     "tufte-css": "^1.8.0",
@@ -22,5 +23,6 @@
     "resolve-url-loader": "^3.1.1",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2"
-  }
+  },
+  "version": "0.0.0"
 }
