@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+todays_date=$(date "+%Y-%m-%d")
+sed -i '' -E "s/[0-9]{4}-[0-9]{2}-[0-9]{2}/$todays_date/" src/version.cr
+
+# Delete the tag if it exists. This will show an error but it's fine
+git tag -d "$todays_date" || true
+
+echo
+echo "Bumped version to $todays_date"
+echo "Here are the commits since the last tag"
+echo "Update the Changelog"
+echo
+
+git log $(git describe --tags --abbrev=0)~..HEAD --oneline
+git tag "$todays_date"

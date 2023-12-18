@@ -1,3 +1,14 @@
+2023-12-18
+
+* Added release script
+* Update License to include https and package.json
+* Add Nix package and NixOS moodule
+* Remove outdated postgres check and dep from shell.nix
+* Fixed Dockerfile
+* Update Dockerfile to use multi-arch base image
+* Add Docker.arm64 file
+* Remove instances that promote hate
+
 2023-05-21
 
 * Remove unused carbon shard which should fix build failures
