@@ -14,7 +14,7 @@ let
 
     offlineCache = fetchYarnDeps {
       yarnLock = ./yarn.lock;
-      sha256 = "sha256-PuxfuqgqJHh6NnyrQiFCxixGry9yGBSeSIPpa4jamKw=";
+      sha256 = "sha256-ixnGRTTKq20tnjOnHeibu12a+n3edV1eM5Om2iNO9fo=";
     };
 
     configurePhase = ''
