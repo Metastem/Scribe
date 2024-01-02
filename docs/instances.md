@@ -8,8 +8,10 @@
 * <https://scribe.privacydev.net>
 * <https://scribe.rawbit.ninja>
 * <https://m.opnxng.com>
+* <https://scribe.manasiwibi.com/>
 * <http://w7uhv5lxhgck72hhimdglmusc54t4m6bionlmd5mvyddq3bs53mohqid.onion> (Tor)
 * <http://scribe.g4c3eya4clenolymqbpgwz3q3tawoxw56yhzk4vugqrl6dtu3ejvhjid.onion> (Tor)
+* <http://umxccfmp4gyfllsdlzkrnhpd3lxlf4necjolrz22yzcrgwflbrzgtiad.onion/> (Tor)
 * [sc.vern.i2p](http://vern3whzyfmjclq6snhlupma6nrmojghwp37tydfgqotj7sc6izq.b32.i2p) (I2P)
 
 ## How do I get my instance on this list?
