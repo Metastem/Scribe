@@ -1,3 +1,9 @@
+Unreleased
+
+* Add command to tag releases
+* Modernize nix config
+* Added scribe.manasiwibi.com instance
+
 2023-12-18
 
 * Added release script
