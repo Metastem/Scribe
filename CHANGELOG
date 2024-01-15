@@ -1,5 +1,6 @@
 Unreleased
 
+* Add a bunch of well-known, LLM scrapers to robots.txt
 * Add command to tag releases
 * Modernize nix config
 * Added scribe.manasiwibi.com instance

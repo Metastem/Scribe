@@ -1,4 +1,55 @@
-# Learn more about robots.txt: https://www.robotstxt.org/robotstxt.html
-User-agent: *
-# 'Disallow' with an empty value allows all paths to be crawled
-Disallow:
+# ChatGPT-User
+User-agent: ChatGPT-User
+Disallow: /
+
+# cohere-ai
+User-agent: cohere-ai
+Disallow: /
+
+# anthropic-ai
+User-agent: anthropic-ai
+Disallow: /
+
+# Bytespider
+User-agent: Bytespider
+Disallow: /
+
+# CCBot
+User-agent: CCBot
+Disallow: /
+
+# FacebookBot
+User-agent: FacebookBot
+Disallow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Disallow: /
+
+# GPTBot
+User-agent: GPTBot
+Disallow: /
+
+# omgili
+User-agent: omgili
+Disallow: /
+
+# Amazonbot
+User-agent: Amazonbot
+Disallow: /
+
+# Applebot
+User-agent: Applebot
+Disallow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Disallow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Disallow: /
+
+# YouBot
+User-agent: YouBot
+Disallow: /
